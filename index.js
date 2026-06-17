@@ -19,6 +19,11 @@ app.get('/metrics', async (req, res) => {
   res.end(await client.register.metrics())
 })
 
+app.get('/crash', (req, res) => {
+  res.json({ message: 'Crashing...' })
+  process.exit(1)
+})
+
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)
 })
